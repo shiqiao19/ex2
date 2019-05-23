@@ -1,4 +1,5 @@
 package com.example.ex2.entity;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

@@ -1,6 +1,7 @@
 package com.example.ex2;
 
 import com.example.ex2.entity.User;
+import com.example.ex2.entity.Address;
 import com.example.ex2.repository.UserRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -8,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import java.util.List;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -21,7 +24,35 @@ public class UserRepositoryTest {
 
     @Test
     public void addUserTest() {
-        User user = userRepository.addUser(new User("BO"));
+        User user=userRepository.addUser(new User("hhh"));
         log.debug("{}", user.getInsertTime());
+    }
+    @Test
+    public void updateUserTest(){
+        User user=userRepository.updateUser(1,"SQ");
+        log.debug("{}", user.getInsertTime());
+    }
+    @Test
+    public void addAddressTest(){
+        Address address=userRepository.addAddress(new Address("902"), 2);
+        log.debug("{}", address.getInsertTime());
+    }
+    @Test
+    public void updateAddressTest(){
+        Address address=userRepository.updateAddress(3, 1);
+        log.debug("{}", address.getInsertTime());
+    }
+    @Test
+    public void listAddressesTest(){
+        List<Address> list =userRepository.listAddresses(1);
+        System.out.println(list);
+    }
+    @Test
+    public void removeAddressTest(){
+        userRepository.removeAddress(1);
+    }
+    @Test
+    public void removeUser(){
+        userRepository.removeUser(2);
     }
 }
